@@ -34,13 +34,15 @@ def information(weather):
     return results
 
 def get_weather(zipcode):
-        weather_key = '86f3988c079d8e7156b9218bcb7b8133'
+        readApikey = open("apikey.txt", "r")
+        weather_key = readApikey.read()
         url = 'https://api.openweathermap.org/data/2.5/weather'
         params = {'appid': weather_key, 'zip': zipcode, 'units': 'metric'}
         response = requests.get(url, params=params)
         weather = response.json()
         
         label['text'] = information(weather)
+        readApikey.close()
         
         
 
@@ -81,8 +83,6 @@ lower_frame.place(relx=0.5, rely=0.2, relwidth=0.7, relheight=0.7, anchor="n")
 
 label = tk.Label(lower_frame, font=('Helvetica', 30))
 label.place(relwidth=1, relheight=1)
-
-
 
 
 
