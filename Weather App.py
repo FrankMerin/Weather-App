@@ -34,7 +34,7 @@ def information(weather):
     return results
 
 def get_weather(zipcode):
-        readApikey = open("apikey.txt", "r")
+        readApikey = open("apikey.gitignore", "r")
         weather_key = readApikey.read()
         url = 'https://api.openweathermap.org/data/2.5/weather'
         params = {'appid': weather_key, 'zip': zipcode, 'units': 'metric'}
